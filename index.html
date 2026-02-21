@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escape Lock</title>
+<title>Escape Room Control Panel</title>
 
 <style>
 body {
@@ -10,72 +10,50 @@ body {
   color: white;
   font-family: Arial, sans-serif;
   text-align: center;
-  padding: 40px 20px;
+  padding: 30px 15px;
 }
 
-.symbols {
-  font-size: 40px;
+h1 {
   margin-bottom: 30px;
 }
 
-input {
-  font-size: 20px;
-  padding: 10px;
-  width: 80%;
-  max-width: 300px;
-  text-align: center;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 400px;
+  margin: auto;
 }
 
-button {
-  margin-top: 20px;
-  font-size: 20px;
-  padding: 10px 20px;
-  background-color: crimson;
+.symbol {
+  font-size: 50px;
+  padding: 25px;
+  background: #222;
+  border-radius: 15px;
+  text-decoration: none;
   color: white;
-  border: none;
-  border-radius: 5px;
 }
 
-button:active {
-  background-color: darkred;
-}
-
-#result {
-  margin-top: 30px;
-  font-size: 22px;
-  font-weight: bold;
+.symbol:active {
+  background: crimson;
 }
 </style>
 </head>
 
 <body>
 
-<h2>Enter the Symbol Code</h2>
+<h1>Select a Symbol</h1>
 
-<div class="symbols">
-☀️ 🌙 ⭐ 🔺
+<div class="grid">
+  <a href="triangle.html" class="symbol">🔺</a>
+  <a href="square.html" class="symbol">🟥</a>
+  <a href="heart.html" class="symbol">❤️</a>
+  <a href="circle.html" class="symbol">⚪</a>
+  <a href="star.html" class="symbol">⭐</a>
+  <a href="moon.html" class="symbol">🌙</a>
+  <a href="diamond.html" class="symbol">💎</a>
+  <a href="cross.html" class="symbol">❌</a>
 </div>
-
-<input type="text" id="codeInput" placeholder="Enter symbols in order">
-<br>
-<button onclick="checkCode()">Unlock</button>
-
-<div id="result"></div>
-
-<script>
-function checkCode() {
-  var correctCode = "☀️🌙⭐🔺";
-  var userInput = document.getElementById("codeInput").value.trim();
-
-  if (userInput === correctCode) {
-    document.getElementById("result").innerHTML = "🔓 UNLOCKED! <br><br> The next clue is hidden under the table.";
-    document.getElementById("result").style.color = "lime";
-  } else {
-    document.getElementById("result").innerHTML = "❌ Wrong code!";
-    document.getElementById("result").style.color = "red";
-  }
-}
-</script>
 
 </body>
 </html>
