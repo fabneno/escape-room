@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Lock</title>
+
+<style>
+body {
+  background-color: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.symbols {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+input {
+  font-size: 20px;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+button {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:active {
+  background-color: darkred;
+}
+
+#result {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Enter the Symbol Code</h2>
+
+<div class="symbols">
+☀️ 🌙 ⭐ 🔺
+</div>
+
+<input type="text" id="codeInput" placeholder="Enter symbols in order">
+<br>
+<button onclick="checkCode()">Unlock</button>
+
+<div id="result"></div>
+
+<script>
+function checkCode() {
+  var correctCode = "☀️🌙⭐🔺";
+  var userInput = document.getElementById("codeInput").value.trim();
+
+  if (userInput === correctCode) {
+    document.getElementById("result").innerHTML = "🔓 UNLOCKED! <br><br> The next clue is hidden under the table.";
+    document.getElementById("result").style.color = "lime";
+  } else {
+    document.getElementById("result").innerHTML = "❌ Wrong code!";
+    document.getElementById("result").style.color = "red";
+  }
+}
+</script>
+
+</body>
+</html>
