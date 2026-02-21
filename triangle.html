@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triangle Lock</title>
+
+<style>
+body {
+  background-color: #000;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.symbol {
+  font-size: 80px;
+  margin-bottom: 30px;
+}
+
+input {
+  font-size: 20px;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+#result {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="symbol">🟥</div>
+
+<input type="text" id="codeInput" placeholder="Enter code">
+<br>
+<button onclick="checkCode()">Unlock</button>
+<br>
+<button onclick="goBack()">⬅ Return</button>
+
+<div id="result"></div>
+
+<script>
+function checkCode() {
+  var correctCode = "1234";  // CHANGE THIS
+  var userInput = document.getElementById("codeInput").value.trim();
+
+  if (userInput === correctCode) {
+    document.getElementById("result").innerHTML = "🔓 UNLOCKED!";
+    document.getElementById("result").style.color = "lime";
+  } else {
+    document.getElementById("result").innerHTML = "❌ Wrong code!";
+    document.getElementById("result").style.color = "red";
+  }
+}
+
+function goBack() {
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
