@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escape Room Control Panel</title>
+<title>Escape Control Panel</title>
 
 <style>
 body {
@@ -26,16 +26,17 @@ h1 {
 }
 
 .symbol {
-  font-size: 50px;
-  padding: 25px;
+  padding: 20px;
   background: #222;
   border-radius: 15px;
-  text-decoration: none;
-  color: white;
 }
 
-.symbol:active {
-  background: crimson;
+.symbol img {
+  width: 80px;
+}
+
+.green {
+  filter: hue-rotate(100deg) saturate(4);
 }
 </style>
 </head>
@@ -45,15 +46,34 @@ h1 {
 <h1>Select a Symbol</h1>
 
 <div class="grid">
-  <a href="triangle.html" class="symbol">🔺</a>
-  <a href="square.html" class="symbol">🟥</a>
-  <a href="heart.html" class="symbol">❤️</a>
-  <a href="circle.html" class="symbol">⚪</a>
-  <a href="star.html" class="symbol">⭐</a>
-  <a href="moon.html" class="symbol">🌙</a>
-  <a href="diamond.html" class="symbol">💎</a>
-  <a href="cross.html" class="symbol">🌸</a>
+  <a href="triangle.html" class="symbol"><img id="triangle" src="triangle.png"></a>
+  <a href="square.html" class="symbol"><img id="square" src="square.png"></a>
+  <a href="heart.html" class="symbol"><img id="heart" src="heart.png"></a>
+  <a href="circle.html" class="symbol"><img id="circle" src="circle.png"></a>
+  <a href="star.html" class="symbol"><img id="star" src="star.png"></a>
+  <a href="moon.html" class="symbol"><img id="moon" src="moon.png"></a>
+  <a href="diamond.html" class="symbol"><img id="diamond" src="diamond.png"></a>
+  <a href="cross.html" class="symbol"><img id="cross" src="cross.png"></a>
 </div>
+
+<script>
+const symbols = ["triangle","square","heart","circle","star","moon","diamond","cross"];
+
+let solvedCount = 0;
+
+symbols.forEach(symbol => {
+  if(localStorage.getItem(symbol) === "solved") {
+    document.getElementById(symbol).classList.add("green");
+    solvedCount++;
+  }
+});
+
+if(solvedCount === 8) {
+  setTimeout(() => {
+    window.location.href = "final.html";
+  }, 1000);
+}
+</script>
 
 </body>
 </html>
