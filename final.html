@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Question</title>
+
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+input {
+  font-size: 20px;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: lime;
+  color: black;
+  border: none;
+  border-radius: 8px;
+}
+
+#result {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Who is the murderer?</h2>
+
+<input type="text" id="finalAnswer" placeholder="Enter name">
+<br>
+<button onclick="checkFinal()">Submit</button>
+
+<div id="result"></div>
+
+<script>
+function checkFinal() {
+  var correctAnswer = "john";  // CHANGE THIS
+  var userInput = document.getElementById("finalAnswer").value.trim().toLowerCase();
+
+  if (userInput === correctAnswer) {
+    document.getElementById("result").innerHTML = "🎉 YOU SOLVED IT! GAME OVER!";
+    document.getElementById("result").style.color = "lime";
+    localStorage.clear();
+  } else {
+    document.getElementById("result").innerHTML = "Wrong accusation...";
+    document.getElementById("result").style.color = "red";
+  }
+}
+</script>
+
+</body>
+</html>
