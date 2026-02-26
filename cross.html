@@ -53,6 +53,8 @@ button {
 <input type="text" id="codeInput" placeholder="Enter code">
 <br>
 <button onclick="checkCode()">Unlock</button>
+<br>
+<button onclick="goBack()">⬅ Return</button>
 
 <div id="result"></div>
 
@@ -75,6 +77,9 @@ function checkCode() {
     document.getElementById("result").innerHTML = "Wrong code!";
     document.getElementById("result").style.color = "red";
   }
+}
+function goBack() {
+  window.location.href = "index.html";
 }
 </script>
 
