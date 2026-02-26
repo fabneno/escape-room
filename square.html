@@ -6,15 +6,15 @@
 
 <style>
 body {
-  background-color: #000;
+  background-color: black;
   color: white;
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 40px 20px;
 }
 
-.symbol {
-  font-size: 80px;
+img {
+  width: 120px;
   margin-bottom: 30px;
 }
 
@@ -46,32 +46,35 @@ button {
 
 <body>
 
-<div class="symbol">❤️</div>
+<img src="square.png">
+
+<br>
 
 <input type="text" id="codeInput" placeholder="Enter code">
 <br>
 <button onclick="checkCode()">Unlock</button>
-<br>
-<button onclick="goBack()">⬅ Return</button>
 
 <div id="result"></div>
 
 <script>
 function checkCode() {
-  var correctCode = "1234";  // CHANGE THIS
+  var correctCode = "3142";  // CHANGE THIS
   var userInput = document.getElementById("codeInput").value.trim();
 
   if (userInput === correctCode) {
-    document.getElementById("result").innerHTML = "🔓 UNLOCKED!";
+    localStorage.setItem("square", "solved");
+
+    document.getElementById("result").innerHTML = "Unlocked!";
     document.getElementById("result").style.color = "lime";
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1500);
+
   } else {
-    document.getElementById("result").innerHTML = "❌ Wrong code!";
+    document.getElementById("result").innerHTML = "Wrong code!";
     document.getElementById("result").style.color = "red";
   }
-}
-
-function goBack() {
-  window.location.href = "index.html";
 }
 </script>
 
